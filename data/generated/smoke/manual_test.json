@@ -1,0 +1,79 @@
+{
+  "instance_id": "manual_test",
+  "seed": 42,
+  "period": 1,
+
+  "sku_ids": ["K1", "K2", "K3"],
+
+  "buyers": {
+    "B1": {
+      "buyer_id": "B1",
+      "delivery_cost": 5.0,
+      "match_history": 0.0,
+      "items": {
+        "K1": {
+          "sku_id": "K1",
+          "min_qty": 5.0,
+          "max_qty": 10.0,
+          "wtp": 12.0
+        },
+        "K2": {
+          "sku_id": "K2",
+          "min_qty": 3.0,
+          "max_qty": 8.0,
+          "wtp": 15.0
+        }
+      }
+    },
+
+    "B2": {
+      "buyer_id": "B2",
+      "delivery_cost": 4.0,
+      "match_history": 0.0,
+      "items": {
+        "K3": {
+          "sku_id": "K3",
+          "min_qty": 4.0,
+          "max_qty": 10.0,
+          "wtp": 14.0
+        }
+      }
+    }
+  },
+
+  "sellers": {
+    "S1": {
+      "seller_id": "S1",
+      "match_history": 0.0,
+      "items": {
+        "K1": {
+          "sku_id": "K1",
+          "capacity": 8.0,
+          "wta": 7.0
+        },
+        "K2": {
+          "sku_id": "K2",
+          "capacity": 5.0,
+          "wta": 9.0
+        }
+      }
+    },
+
+    "S2": {
+      "seller_id": "S2",
+      "match_history": 0.0,
+      "items": {
+        "K1": {
+          "sku_id": "K1",
+          "capacity": 6.0,
+          "wta": 8.0
+        },
+        "K3": {
+          "sku_id": "K3",
+          "capacity": 8.0,
+          "wta": 10.0
+        }
+      }
+    }
+  }
+}
