@@ -9,7 +9,7 @@
 * Candidate: Fixed / Scenario-based
 * Initial assumption: 30 
 * Experimental levels: 30 / 50 / 100
-* Olist calibration: No
+* Public data calibration: No
 * Status: Temporarily fixed
 
 > (t >= 2)의 (B_t)는 새로 생성하지 않고 재참여확률 (r_{b,t})에 따라 결정
@@ -19,14 +19,13 @@
 * Variable: (|K_{bt}|)
 * Meaning: Buyer b의 한 주문에 포함되는 서로 다른 SKU의 수
 * Candidate distribution: Categorical / Empirical
-* Olist calibration: Possible
+* Public data calibration: Difficult 
+  (공개 경매데이터는 개별 거래 단위이므로 하나의 Buyer가 동시에 주문한 다품종 번들을 직접 식별하기 어려움)
 * Initial assumption: Categorical (근거 마련 필요)
-  * 1 SKU: 20%
+  * 1 SKU: 40%
   * 2 SKU: 30%
   * 3 SKU: 30%
-  * 4 SKU: 15%
-  * 5 SKU: 5%
-* Future: Olist empirical distribution으로 calibration
+* Future: 다품종 주문구조에 대한 별도 실증자료 확보 시 calibration
 * Status: Temporarily fixed
 
 ### 3. SKU Selection
@@ -34,9 +33,11 @@
 * Variable: (K_{bt})
 * Meaning: Buyer b의 주문에 포함되는 SKU 집합
 * Candidate distribution: Categorical / Weighted sampling without replacement (중복X)
-* Olist calibration: Possible
+* Public data calibration: Possible / Proxy
+* Calibration source: 2022년 1월 가락시장 경매결과의 품목별 거래빈도
+                      2022년 1월 중도매인 경매데이터의 품목별 거래빈도
 * Initial assumption: Uniform (모든 SKU가 똑같이 선택될 가능성이 있다고 가정)
-* Future: 모든 SKU가 똑같이 선택될 가능성이 있다고 가정
+* Future: 품목별 상대적 거래빈도를 활용한 Weighted sampling과 비교
 * Status: Temporarily fixed
 
 ### 4. Order Quantity
@@ -48,10 +49,15 @@
 * Candidate distribution:
   * (\overline{D}_{bkt}): Lognormal / Empirical
   * \(underline{D}_{bkt} = \alpha \overline{D}_{bkt})
-* Olist calibration: Partial
-* Initial assumption: TBD
-* Future: Olist 주문량 분포를 참고하여 (\overline{D}_{bkt}) calibration
+* Public data calibration: Partial / Proxy
+* Calibration source: 2022년 1월 가락시장 경매결과의 QTY, UUN 
+                      중도매인 경매데이터의 거래수량
+* Generation: QTY와 UUN을 이용해 가능한 경우 kg 등 공통 단위로 표준화
+              실제 경매 거래량 분포를 Buyer 주문량 규모의 proxy로 활용
+* Initial assumption: Empirical distribution 우선 검토
+* Caution: 실제 거래량은 Buyer의 최대 잠재수요 자체가 아니라 실현 거래량이므로 (\overline{D}_{bkt})의 proxy로 사용
 * Status: Not fixed
+--------------------------------------
 
 ### 5. WTP
 
