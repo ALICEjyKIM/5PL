@@ -1,0 +1,19 @@
+{
+  "instance_id": "smoke_seed_20260826",
+  "seed": 20260826,
+  "period": 1,
+  "num_buyers": 8,
+  "num_sellers": 10,
+  "num_skus": 5,
+  "buyer_sku_count_probs": [0.5, 0.3, 0.2],
+  "buyer_sku_count_values": [1, 2, 3],
+  "seller_coverage_probability": 0.5,
+  "order_quantity": {"min": 5, "max": 30, "minimum_fraction": 0.6},
+  "reference_price": {"min": 50.0, "max": 150.0},
+  "buyer_price_premium": {"min": 0.05, "max": 0.25},
+  "seller_price_dispersion": 0.1,
+  "supply_scenario": "balanced",
+  "supply_ratios": {"scarce": 0.7, "balanced": 1.0, "abundant": 1.3},
+  "regions": {"near": 10.0, "medium": 20.0, "far": 30.0},
+  "initial_history": {"alpha": 2.0, "beta": 5.0}
+}
